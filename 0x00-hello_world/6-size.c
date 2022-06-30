@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 /**
  * main - main block
  * Return: 0
@@ -11,7 +10,6 @@ int main(void)
         long int longIntType;
         long long int longLongType;
         float floatType;
-	
 	printf("Size of a char: %1d byte(s)\n", sizeof(charType));
 	printf("Size of an int: %id byte(s)\n", sizeof(intType));
 	printf("Size of a long int: %id byte(s)\n", sizeof(longintType));
