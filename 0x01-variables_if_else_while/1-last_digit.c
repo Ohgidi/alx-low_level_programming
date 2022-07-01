@@ -1,26 +1,30 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-
+/* more headers goes there */
 /**
- * main - check if a random number is positive or negative
- *
- * Return: 0 if error
+ * main - main block
+ * Description: Print statements based on the last digit of the random number.
+ * Return: 0
  */
+
+/* betty style doc for function main goes there */
 int main(void)
 {
 	int n;
-	int nLast;
+	int m;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	nLast = n % 10;
+	m = n % 10;
+	/* your code goes there */
 
-	if (nLast > 5)
-		printf("Last digit of %d is %d and is greater than 5\n", n, nLast);
-	else if (nLast < 6 && nLast != 0)
-		printf("Last digit of %d is %d and is less than 6 and not 0\n", n, nLast);
-	else											printf("Last digit of %d is %d and is 0\n", n, nLast);
-                   
+	if (m > 5)
+		printf("Last digit of %i is %i and is greater than 5\n",			       n, m);
+	else if (m == 0)
+		printf("Last digit of %i is %i and is 0\n", n, m);
+	else
+		printf("Last digit of %i is %i and is less than 6 and not 0\n",
+		       n, m);
 	return (0);
 }
