@@ -1,40 +1,41 @@
 #include <stdio.h>
-
 /**
- *  * main - output all single digit number of base 10
- *   *
- *    * Return: 0 if successful
- *     */
+ * main - main block
+ * Description: Print all possible different combinations of 3 digits.
+ * Numbers must be separated by commas and a space.
+ * The 3 digits must be different.
+ * 012, 120, 102, 021, 201, 210 are considered the same combination.
+ * print only the smallest combination of 3 digits.
+ * Numbers should be printed in ascending order.
+ * You can only use `putchar` to print to console.
+ * You can only use `putchar` up to 6 times.
+ * You are not allowed to use any variables of type `char`.
+ * Return: 0
+ */
 int main(void)
 {
-		int var;
+	int i, j, k, l;
 
-			for (var = 0; var < 8; var++)
-					{
-								int ii;
+	for (i = 0; i < 1000; i++)
+	{
+		j = i / 100; /* hundreds */
+		k = (i / 10) % 10; /* tens */
+		l = i % 10; /* singles */
 
-										for (ii = var + 1; ii < 9; ii++)
-													{
-																	int jj;
+		if (j < k && k < l)				
+		{
+			putchar(j + '0');
+			putchar(k + '0');
+			putchar(l + '0');
 
-																				for (jj = ii + 1; jj < 10; jj++)
-																								{
-																													putchar((var % 10) + '0');
-																																	putchar((ii % 10) + '0');
-																																					putchar((jj % 10) + '0');
-
-																																									if (var != 7)
-																																														{
-																																																				putchar(',');
-																																																									putchar(' ');
-																																																													}
-																																													else
-																																																			continue;
-																																																}
-																						}
+			if (i < 700)
+			{
+				putchar(44);
+     				putchar(32);
+			}
+		}
 											}
+	putchar('\n');
 
-				putchar('\n');
-
-					return (0);
+	return (0);
 }
