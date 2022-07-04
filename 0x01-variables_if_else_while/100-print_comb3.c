@@ -28,16 +28,16 @@ int main(void)
 			putchar(k + '0');
 			putchar(j + '0');
 
-			if (i < 89)			
+	     	        if (i < 89)	
 			{
 				putchar(44);
 				putchar(32);
 			}
 		}
 
-		i++;				
+		i++;
 	}
 	putchar('\n');
 
 	return (0);
-}        
+}	
