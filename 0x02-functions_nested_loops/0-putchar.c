@@ -1,19 +1,12 @@
-#include "holberton.h"
-
+#include <unistd.h>
 /**
- *  * main - function to print
- *   *
- *    * Return: 0
- *     */
-int main(void)
+ *  * _putchar - writes the character c to stdout
+ *   * @c: the character to print
+ *    *
+ *     * Return: On success 1.
+ *      * on error, -1 is returned, and errno is set appropriately.
+ *       */
+int _putchar(char c)
 {
-		char holberton[9] = {'H', 'o', 'l', 'b', 'e', 'r', 't', 'o', 'n'};
-			unsigned int c;
-
-				for (c = 0; c < sizeof(holberton); c++)
-						{
-									_putchar(holberton[c]);
-										}
-				_putchar('\n');
-				return (0);
+		return (write(1, &c, 1));
 }
