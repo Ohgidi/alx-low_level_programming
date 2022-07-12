@@ -1,23 +1,22 @@
 #include "main.h"
 
 /**
- * puts2 - prints one char out of 2 of a string.
- * @str: input string.
- * Return: no return.
+ * puts2 - print even number of a string
+ * @str: string variable
+ *
+ * Created by: Sanctus-Peter
+ * cc: 12th july, 2022.
  */
+
 void puts2(char *str)
 {
-	int count = 0;
+	int i = 0;
 
-	while (count >= 0)
+	while (str[i] != '\0')
 	{
-		if (str[count] == '\0')
-		{
-			_putchar('\n');
-			break;
-		}
-		if (count % 2 == 0)
-			_putchar(str[count]);
-		count++;
+		if (i % 2 == 0)
+			_putchar(str[i]);
+		i += 1;
 	}
+	_putchar('\n');
 }
