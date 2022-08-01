@@ -1,6 +1,3 @@
-0x0C-more_malloc_free/101-mul.c
- 
-
 #include <stdlib.h>
 #include <stdio.h>
 #include "main.h"
