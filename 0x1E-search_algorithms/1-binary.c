@@ -1,61 +1,57 @@
 #include "search_algos.h"
 
 /**
- * recursive_search - searches for a value in an array of
- * integers using the Binary search algorithm
- *
- *
- * @array: input array
- * @size: size of the array
- * @value: value to search in
- * Return: index of the number
+ * printArray - prints the elements of an array
+ * @array: array of elements to print
+ * @from: the index to start from
+ * @to: the index to end
  */
-int recursive_search(int *array, size_t size, int value)
+void printArray(int *array, int from, int to)
 {
-	size_t half = size / 2;
-	size_t i;
-
-	if (array == NULL || size == 0)
-		return (-1);
-
-	printf("Searching in array");
-
-	for (i = 0; i < size; i++)
-		printf("%s %d", (i == 0) ? ":" : ",", array[i]);
-
-	printf("\n");
-
-	if (half && size % 2 == 0)
-		half--;
-
-	if (value == array[half])
-		return ((int)half);
-
-	if (value < array[half])
-		return (recursive_search(array, half, value));
-
-	half++;
-
-	return (recursive_search(array + half, size - half, value) + half);
+printf("Searching in array: ");
+while (from <= to - 1)
+{
+printf("%i, ", *(array + from));
+from++;
+}
+printf("%i\n", *(array + from));
+}
+/**
+ * binary - recursive function performing binary search
+ * @array: array of elements to search from
+ * @left: left most of the range
+ * @right: right most of the range
+ * @value: value to search for
+ * Return: the position of value in array
+ */
+int binary(int *array, int left, int right, int value)
+{
+if (right >= left)
+{
+int mid = left + (right - left) / 2;
+printArray(array, left, right);
+if (array[mid] == value)
+return (mid);
+if (array[mid] > value)
+return (binary(array, left, mid - 1, value));
+return (binary(array, mid + 1, right, value));
+}
+return (-1);
 }
 
+
 /**
- * binary_search - calls to binary_search to return
- * the index of the number
- *
- * @array: input array
- * @size: size of the array
- * @value: value to search in
- * Return: index of the number
+ * binary_search - finds an element in an array using binary search
+ * @array: pointer to first element in array
+ * @size: size of array
+ * @value: the value to search for
+ * Return: the index of value in array
  */
 int binary_search(int *array, size_t size, int value)
 {
-	int index;
-
-	index = recursive_search(array, size, value);
-
-	if (index >= 0 && array[index] != value)
-		return (-1);
-
-	return (index);
-}
+int pos = -1;
+if (array == NULL)
+return (-1);
+pos = binary(array, 0, size - 1, value);
+return (pos);
+}}
